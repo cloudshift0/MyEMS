@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EMS.DataAccess\EMS.DataAccess.csproj" />
+    <ProjectReference Include="..\EMS.Models\EMS.Models.csproj" />
+    <ProjectReference Include="..\EMS.Utility\EMS.Utility.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Helper\" />
+    <Folder Include="Arear\" />
+  </ItemGroup>
+
+</Project>
