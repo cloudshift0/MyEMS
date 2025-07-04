@@ -6,9 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+
   <ItemGroup>
-    <ProjectReference Include="..\EMS.DataAccess\EMS.DataAccess.csproj" />
-    <ProjectReference Include="..\EMS.Utility\EMS.Utility.csproj" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 
 </Project>
