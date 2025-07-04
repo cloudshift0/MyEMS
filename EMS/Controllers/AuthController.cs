@@ -1,5 +1,6 @@
 ﻿using EMS.Models;
 using Microsoft.AspNetCore.Mvc;
+using EMS.DataAccess;
 
 namespace EMS.Controllers
 {
