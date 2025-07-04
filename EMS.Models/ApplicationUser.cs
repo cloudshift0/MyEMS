@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EMS.Models
+namespace EMS.Models.Models
 {
-    public class Employee
+    public class ApplicationUser 
     {
         public int Id { get; set; }
 

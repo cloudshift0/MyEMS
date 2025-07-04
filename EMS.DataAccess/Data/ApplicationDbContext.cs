@@ -1,12 +1,11 @@
-﻿using EMS.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace EMS.DataAccess
+namespace EMS.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<User> Employees { get; set; }
     }
 }
