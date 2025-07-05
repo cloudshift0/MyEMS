@@ -1,4 +1,3 @@
-// EMS.Data/DbInitializer.cs
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using EMS.Models;
@@ -12,7 +11,9 @@ public class DbInitializer
         foreach (string role in roles)
         {
             if (!await roleManager.RoleExistsAsync(role))
+            {
                 await roleManager.CreateAsync(new IdentityRole(role));
+            }
         }
 
         // Create admin user
