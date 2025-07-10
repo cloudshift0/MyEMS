@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Arear\**" />
+    <Content Remove="Arear\**" />
+    <EmbeddedResource Remove="Arear\**" />
+    <None Remove="Arear\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\EMS.DataAccess\EMS.DataAccess.csproj" />
     <ProjectReference Include="..\EMS.Models\EMS.Models.csproj" />
     <ProjectReference Include="..\EMS.Utility\EMS.Utility.csproj" />
@@ -14,7 +21,6 @@
 
   <ItemGroup>
     <Folder Include="Helper\" />
-    <Folder Include="Arear\" />
   </ItemGroup>
 
   <ItemGroup>
