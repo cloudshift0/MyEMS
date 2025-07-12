@@ -20,16 +20,34 @@
   </ItemGroup>
 
   <ItemGroup>
+<<<<<<< Updated upstream
     <Folder Include="Areas\ARAD\Data\" />
     <Folder Include="Areas\ARAD\Models\" />
+=======
+    <Folder Include="Areas\ARAD\Controllers\" />
+    <Folder Include="Areas\ARAD\Data\" />
+    <Folder Include="Areas\ARAD\Models\" />
+    <Folder Include="Areas\ARAD\Views\" />
+>>>>>>> Stashed changes
     <Folder Include="Areas\AREM\Controllers\" />
     <Folder Include="Areas\AREM\Data\" />
     <Folder Include="Areas\AREM\Models\" />
     <Folder Include="Areas\AREM\Views\" />
+<<<<<<< Updated upstream
     <Folder Include="Areas\ARFM\Data\" />
     <Folder Include="Areas\ARFM\Models\" />
     <Folder Include="Areas\Welcome\Data\" />
     <Folder Include="Areas\Welcome\Models\" />
+=======
+    <Folder Include="Areas\ARFM\Controllers\" />
+    <Folder Include="Areas\ARFM\Data\" />
+    <Folder Include="Areas\ARFM\Models\" />
+    <Folder Include="Areas\ARFM\Views\" />
+    <Folder Include="Areas\Welcome\Data\" />
+    <Folder Include="Areas\Welcome\Models\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Data\" />
+>>>>>>> Stashed changes
     <Folder Include="Helper\" />
   </ItemGroup>
 
