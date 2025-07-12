@@ -41,7 +41,11 @@ app.UseAuthorization();
 // In Program.cs
 app.MapControllerRoute(
     name: "default",
+<<<<<<< Updated upstream
     pattern: "{area=ARFM}/{controller=Home}/{action=Index}/{id?}");
+=======
+    pattern: "{Area=Welcome}/{controller=Home}/{action=Index}/{id?}");
+>>>>>>> Stashed changes
 
 
 
