@@ -20,6 +20,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\ARAD\Data\" />
+    <Folder Include="Areas\ARAD\Models\" />
+    <Folder Include="Areas\AREM\Controllers\" />
+    <Folder Include="Areas\AREM\Data\" />
+    <Folder Include="Areas\AREM\Models\" />
+    <Folder Include="Areas\AREM\Views\" />
+    <Folder Include="Areas\ARFM\Data\" />
+    <Folder Include="Areas\ARFM\Models\" />
+    <Folder Include="Areas\Welcome\Data\" />
+    <Folder Include="Areas\Welcome\Models\" />
     <Folder Include="Helper\" />
   </ItemGroup>
 
@@ -38,6 +48,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="8.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
   </ItemGroup>
 
 </Project>
