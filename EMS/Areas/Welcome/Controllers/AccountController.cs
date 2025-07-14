@@ -20,7 +20,7 @@ public class AccountController : Controller
     // POST: /Account/Register
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Register(RegisterViewModel model)
+    public async Task<IActionResult> Register(RegisterViewModal model)
     {
         if (!ModelState.IsValid)
             return View(model);

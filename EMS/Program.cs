@@ -17,6 +17,17 @@ builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Account/Login";
     options.AccessDeniedPath = "/Account/AccessDenied";
+    options.LogoutPath = "/Account/Logout";
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+    options.SlidingExpiration = true;
+});
+
+// Add session configuration
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
 });
 
 // Add services to the container.
@@ -35,26 +46,25 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+
+// Use session before authentication
+app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// In Program.cs
+// Updated routing to redirect to login by default
 app.MapControllerRoute(
     name: "default",
-<<<<<<< Updated upstream
-    pattern: "{area=ARFM}/{controller=Home}/{action=Index}/{id?}");
-=======
-    pattern: "{Area=Welcome}/{controller=Home}/{action=Index}/{id?}");
->>>>>>> Stashed changes
+    pattern: "{controller=Account}/{action=Login}/{id?}"
+);
 
-
-
-//using (var scope = app.Services.CreateScope())
-//{
-//    var services = scope.ServiceProvider;
-//    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
-//    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-//    await DbInitializer.SeedRolesAndAdmin(userManager, roleManager);
-//}
+// Initialize database and roles
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+    await DbInitializer.SeedRolesAndAdmin(userManager, roleManager);
+}
 
 app.Run();
