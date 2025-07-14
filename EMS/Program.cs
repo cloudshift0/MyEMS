@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using EMS.Models;
 using EMS.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,6 +46,15 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+// Configure static files for TempComp
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "TempComp", "dist")),
+    RequestPath = "/TempComp/dist"
+});
+
 app.UseRouting();
 
 // Use session before authentication
@@ -52,7 +62,13 @@ app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Updated routing to redirect to login by default
+// Area routing
+app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+);
+
+// Default routing to redirect to login by default
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Account}/{action=Login}/{id?}"

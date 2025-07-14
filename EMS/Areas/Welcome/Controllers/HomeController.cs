@@ -5,6 +5,7 @@ using System.Diagnostics;
 
 namespace EMS.Areas.Welcome.Controllers
 {
+    [Area("Welcome")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
