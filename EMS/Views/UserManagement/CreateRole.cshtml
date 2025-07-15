@@ -1,0 +1,41 @@
+@model EMS.Models.CreateRoleViewModel
+@{
+    ViewData["Title"] = "Create Role";
+    Layout = "_DashboardLayout";
+}
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Create New Role</h5>
+            </div>
+            <div class="card-body">
+                <form asp-action="CreateRole" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Create Role</button>
+                        <a asp-action="Roles" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -88,6 +88,50 @@
                             <span class="pcoded-mtext">Profile</span>
                         </a>
                     </li>
+
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>User Management</label>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link">
+                            <span class="pcoded-micon"><i class="feather icon-users"></i></span>
+                            <span class="pcoded-mtext">User Management</span>
+                        </a>
+                        <ul class="pcoded-submenu">
+                            <li>
+                                <a asp-action="Index" asp-controller="UserManagement" class="nav-link">
+                                    <span class="pcoded-micon"><i class="feather icon-user"></i></span>
+                                    <span class="pcoded-mtext">All Users</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-action="CreateUser" asp-controller="UserManagement" class="nav-link">
+                                    <span class="pcoded-micon"><i class="feather icon-user-plus"></i></span>
+                                    <span class="pcoded-mtext">Create User</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link">
+                            <span class="pcoded-micon"><i class="feather icon-shield"></i></span>
+                            <span class="pcoded-mtext">Role Management</span>
+                        </a>
+                        <ul class="pcoded-submenu">
+                            <li>
+                                <a asp-action="Roles" asp-controller="UserManagement" class="nav-link">
+                                    <span class="pcoded-micon"><i class="feather icon-shield"></i></span>
+                                    <span class="pcoded-mtext">All Roles</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-action="CreateRole" asp-controller="UserManagement" class="nav-link">
+                                    <span class="pcoded-micon"><i class="feather icon-plus"></i></span>
+                                    <span class="pcoded-mtext">Create Role</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -256,13 +300,13 @@
 
 
 
-                           
-                                       
-                                   
-                                   
-                                       
-                                           
-                                                       
-                                   
-                                   
-                                       
+
+
+
+
+
+
+
+
+
+
