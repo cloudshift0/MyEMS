@@ -1,0 +1,158 @@
+@{
+    ViewData["Title"] = "Analytics";
+    Layout = "_DashboardLayout";
+}
+
+<!-- Analytics Cards start -->
+<div class="col-md-6 col-xl-3">
+    <div class="card widget-statstic-card card-border-c-green">
+        <div class="card-body">
+            <div class="card-header-left mb-3">
+                <h5 class="mb-0">Revenue</h5>
+                <p class="p-t-10 m-b-0 text-c-green">Monthly revenue</p>
+            </div>
+            <i class="feather icon-dollar-sign st-icon bg-c-green"></i>
+            <div class="text-left">
+                <h3 class="d-inline-block">$12,345</h3>
+                <i class="feather icon-arrow-up f-30 text-c-green"></i>
+                <span class="float-right bg-c-green">8%</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6 col-xl-3">
+    <div class="card widget-statstic-card card-border-c-blue">
+        <div class="card-body">
+            <div class="card-header-left mb-3">
+                <h5 class="mb-0">Page Views</h5>
+                <p class="p-t-10 m-b-0 text-c-blue">Total page views</p>
+            </div>
+            <i class="feather icon-eye st-icon bg-c-blue"></i>
+            <div class="text-left">
+                <h3 class="d-inline-block">45,678</h3>
+                <i class="feather icon-arrow-up f-30 text-c-green"></i>
+                <span class="float-right bg-c-blue">15%</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6 col-xl-3">
+    <div class="card widget-statstic-card card-border-c-yellow">
+        <div class="card-body">
+            <div class="card-header-left mb-3">
+                <h5 class="mb-0">Bounce Rate</h5>
+                <p class="p-t-10 m-b-0 text-c-yellow">Average bounce rate</p>
+            </div>
+            <i class="feather icon-trending-down st-icon bg-c-yellow"></i>
+            <div class="text-left">
+                <h3 class="d-inline-block">23.5%</h3>
+                <i class="feather icon-arrow-down f-30 text-c-red"></i>
+                <span class="float-right bg-c-yellow">-2%</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6 col-xl-3">
+    <div class="card widget-statstic-card card-border-c-red">
+        <div class="card-body">
+            <div class="card-header-left mb-3">
+                <h5 class="mb-0">Conversion</h5>
+                <p class="p-t-10 m-b-0 text-c-red">Conversion rate</p>
+            </div>
+            <i class="feather icon-target st-icon bg-c-red"></i>
+            <div class="text-left">
+                <h3 class="d-inline-block">4.2%</h3>
+                <i class="feather icon-arrow-up f-30 text-c-green"></i>
+                <span class="float-right bg-c-red">0.8%</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Analytics Cards end -->
+
+<!-- Chart Section start -->
+<div class="col-xl-8 col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Traffic Analytics</h5>
+        </div>
+        <div class="card-body">
+            <div class="row my-2">
+                <div class="col-auto">
+                    <h4 class="m-0">Monthly Traffic Overview</h4>
+                    <span>Detailed analytics for the current month</span>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="traffic-chart" height="300"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Chart Section end -->
+
+<!-- Top Pages start -->
+<div class="col-xl-4 col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Top Pages</h5>
+        </div>
+        <div class="card-body">
+            <div class="list-group">
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>/dashboard</span>
+                    <span class="badge badge-primary badge-pill">1,234</span>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>/analytics</span>
+                    <span class="badge badge-primary badge-pill">892</span>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>/profile</span>
+                    <span class="badge badge-primary badge-pill">567</span>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>/settings</span>
+                    <span class="badge badge-primary badge-pill">234</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Top Pages end -->
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Analytics chart
+        $(document).ready(function () {
+            const ctx = document.getElementById('traffic-chart').getContext('2d');
+            const trafficChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Page Views',
+                        data: [1200, 1900, 3000, 5000, 2300, 3200, 4100, 3800, 4500, 5200, 4800, 5500],
+                        borderColor: 'rgb(75, 192, 192)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+}
+ 

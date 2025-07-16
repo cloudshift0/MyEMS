@@ -1,0 +1,165 @@
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "_DashboardLayout";
+}
+
+<!-- Profile Section start -->
+<div class="col-xl-4 col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Profile Information</h5>
+        </div>
+        <div class="card-body text-center">
+            <img src="~/TempComp/dist/assets/images/user/avatar-1.jpg" class="img-radius mb-3" alt="User-Profile-Image"
+                style="width: 120px; height: 120px;">
+            <h4 class="mb-2">@ViewBag.UserName</h4>
+            <p class="text-muted mb-3">@ViewBag.UserEmail</p>
+            <div class="row">
+                <div class="col-6">
+                    <h6 class="mb-0">23</h6>
+                    <small class="text-muted">Posts</small>
+                </div>
+                <div class="col-6">
+                    <h6 class="mb-0">456</h6>
+                    <small class="text-muted">Followers</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Profile Section end -->
+
+<!-- Profile Details start -->
+<div class="col-xl-8 col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Account Details</h5>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" value="@ViewBag.UserName" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" value="@ViewBag.UserEmail" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" class="form-control" id="phone" placeholder="Enter phone number">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <select class="form-control" id="department">
+                                <option>Select Department</option>
+                                <option>IT</option>
+                                <option>HR</option>
+                                <option>Finance</option>
+                                <option>Operations</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea class="form-control" id="address" rows="3" placeholder="Enter your address"></textarea>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" id="city" placeholder="Enter city">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="zip">ZIP Code</label>
+                            <input type="text" class="form-control" id="zip" placeholder="Enter ZIP code">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Update Profile</button>
+                <button type="button" class="btn btn-secondary ml-2">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Profile Details end -->
+
+<!-- Recent Activity start -->
+<div class="col-xl-12 col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Recent Activity</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Activity</th>
+                            <th>Date</th>
+                            <th>IP Address</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i class="feather icon-log-in text-success"></i>
+                                Login
+                            </td>
+                            <td>@DateTime.Now.ToString("MMM dd, yyyy HH:mm")</td>
+                            <td>192.168.1.100</td>
+                            <td><span class="badge badge-success">Success</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="feather icon-user text-primary"></i>
+                                Profile Update
+                            </td>
+                            <td>@DateTime.Now.AddDays(-1).ToString("MMM dd, yyyy HH:mm")</td>
+                            <td>192.168.1.100</td>
+                            <td><span class="badge badge-success">Success</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="feather icon-lock text-warning"></i>
+                                Password Change
+                            </td>
+                            <td>@DateTime.Now.AddDays(-3).ToString("MMM dd, yyyy HH:mm")</td>
+                            <td>192.168.1.100</td>
+                            <td><span class="badge badge-success">Success</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Recent Activity end -->
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Profile form handling
+            $('form').on('submit', function (e) {
+                e.preventDefault();
+                alert('Profile update functionality would be implemented here');
+            });
+        });
+    </script>
+}
+
+                 

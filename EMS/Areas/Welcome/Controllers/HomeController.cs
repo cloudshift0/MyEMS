@@ -1,16 +1,13 @@
-<<<<<<< Updated upstream
-﻿using EMS.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using EMS.Models;
 using System.Diagnostics;
-=======
-﻿using Microsoft.AspNetCore.Mvc;
->>>>>>> Stashed changes
 
 namespace EMS.Areas.Welcome.Controllers
 {
+    [Area("Welcome")]
     public class HomeController : Controller
     {
-<<<<<<< Updated upstream
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -18,13 +15,10 @@ namespace EMS.Areas.Welcome.Controllers
             _logger = logger;
         }
 
-=======
->>>>>>> Stashed changes
         public IActionResult Index()
         {
             return View();
         }
-<<<<<<< Updated upstream
 
         public IActionResult Privacy()
         {
@@ -36,7 +30,5 @@ namespace EMS.Areas.Welcome.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-=======
->>>>>>> Stashed changes
     }
 }

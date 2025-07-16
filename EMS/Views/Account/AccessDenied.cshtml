@@ -1,0 +1,68 @@
+@{
+    ViewData["Title"] = "Access Denied";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MyEMS - Access Denied</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="MyEMS" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="~/TempComp/dist/assets/images/favicon.ico" type="image/x-icon">
+    <!-- vendor css -->
+    <link rel="stylesheet" href="~/TempComp/dist/assets/css/style.css">
+</head>
+
+<body>
+    <!-- [ auth-access-denied ] start -->
+    <div class="auth-wrapper">
+        <div class="auth-content text-center">
+            <img src="~/TempComp/dist/assets/images/logo.png" alt="MyEMS" class="img-fluid mb-4">
+            <div class="card borderless">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <h4 class="mb-3 f-w-400">Access Denied</h4>
+                            <hr>
+
+                            <div class="alert alert-warning">
+                                <i class="feather icon-alert-triangle"></i>
+                                You don't have permission to access this resource. Please contact your administrator if
+                                you believe this is an error.
+                            </div>
+
+                            <a asp-action="Index" asp-controller="Dashboard" class="btn btn-block btn-primary mb-4">Go
+                                to Dashboard</a>
+
+                            <hr>
+                            <p class="mb-0 text-muted">
+                                Need help? <a href="mailto:support@ems.com" class="f-w-400">Contact Support</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- [ auth-access-denied ] end -->
+
+    <!-- Required Js -->
+    <script src="~/TempComp/dist/assets/js/vendor-all.min.js"></script>
+    <script src="~/TempComp/dist/assets/js/plugins/bootstrap.min.js"></script>
+    <script src="~/TempComp/dist/assets/js/pcoded.min.js"></script>
+</body>
+
+</html>
+
+
+
+                               
+   toDashboard</a>
+

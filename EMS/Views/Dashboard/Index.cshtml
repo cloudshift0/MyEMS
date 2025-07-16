@@ -1,0 +1,143 @@
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "_DashboardLayout";
+}
+
+<!-- widget-statstic start -->
+<div class="col-md-12 col-xl-4">
+    <div class="card widget-statstic-card card-border-c-yellow">
+        <div class="card-body">
+            <div class="card-header-left mb-3">
+                <h5 class="mb-0">Total Users</h5>
+                <p class="p-t-10 m-b-0 text-c-yellow">Registered system users</p>
+            </div>
+            <i class="feather icon-users st-icon bg-c-yellow"></i>
+            <div class="text-left">
+                <h3 class="d-inline-block">@ViewBag.TotalUsers</h3>
+                <i class="feather icon-arrow-up f-30 text-c-green"></i>
+                <span class="float-right bg-c-yellow">@ViewBag.ActiveUsers Active</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6 col-xl-4">
+    <div class="card widget-statstic-card card-border-c-red">
+        <div class="card-body">
+            <div class="card-header-left mb-3">
+                <h5 class="mb-0">Inactive Users</h5>
+                <p class="p-t-10 m-b-0 text-c-red">Disabled user accounts</p>
+            </div>
+            <i class="feather icon-user-x st-icon bg-c-red txt-lite-color"></i>
+            <div class="text-left">
+                <h3 class="d-inline-block">@ViewBag.InactiveUsers</h3>
+                <i class="feather icon-arrow-down text-c-red f-30"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6 col-xl-4">
+    <div class="card widget-statstic-card card-border-c-blue">
+        <div class="card-body">
+            <div class="card-header-left mb-3">
+                <h5 class="mb-0">Total Roles</h5>
+                <p class="p-t-10 m-b-0 text-c-blue">System roles configured</p>
+            </div>
+            <i class="feather icon-shield st-icon bg-c-blue"></i>
+            <div class="text-left">
+                <h3 class="d-inline-block">@ViewBag.TotalRoles</h3>
+                <i class="feather icon-arrow-up text-c-green f-30"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- widget-statstic end -->
+
+<!-- Recent Activity start -->
+<div class="col-xl-8 col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Recent Activity</h5>
+        </div>
+        <div class="card-body">
+            <div class="row my-2">
+                <div class="col-auto">
+                    <h4 class="m-0">Welcome back, @ViewBag.UserName!</h4>
+                    <span>Your dashboard overview</span>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Activity</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>User logged in</td>
+                            <td>Just now</td>
+                            <td><span class="badge badge-success">Success</span></td>
+                        </tr>
+                        <tr>
+                            <td>System backup completed</td>
+                            <td>2 hours ago</td>
+                            <td><span class="badge badge-success">Success</span></td>
+                        </tr>
+                        <tr>
+                            <td>Database maintenance</td>
+                            <td>Yesterday</td>
+                            <td><span class="badge badge-warning">Pending</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Recent Activity end -->
+
+<!-- Quick Actions start -->
+<div class="col-xl-4 col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Quick Actions</h5>
+        </div>
+        <div class="card-body">
+            <div class="list-group">
+                <a asp-action="CreateUser" asp-controller="UserManagement"
+                    class="list-group-item list-group-item-action">
+                    <i class="feather icon-user-plus"></i> Add New User
+                </a>
+                <a asp-action="CreateRole" asp-controller="UserManagement"
+                    class="list-group-item list-group-item-action">
+                    <i class="feather icon-shield"></i> Create New Role
+                </a>
+                <a asp-action="Index" asp-controller="UserManagement" class="list-group-item list-group-item-action">
+                    <i class="feather icon-users"></i> Manage Users
+                </a>
+                <a asp-action="Roles" asp-controller="UserManagement" class="list-group-item list-group-item-action">
+                    <i class="feather icon-settings"></i> Manage Roles
+                </a>
+                <a href="#!" class="list-group-item list-group-item-action">
+                    <i class="feather icon-file-text"></i> Generate Report
+                </a>
+                <a href="#!" class="list-group-item list-group-item-action">
+                    <i class="feather icon-database"></i> Backup Database
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Quick Actions end -->
+
+@section Scripts {
+    <script>
+        // Dashboard specific scripts
+        $(document).ready(function () {
+            // Initialize any dashboard widgets here
+            console.log('Dashboard loaded for user: @ViewBag.UserName');
+        });
+    </script>
+}

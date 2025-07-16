@@ -1,0 +1,48 @@
+@model EMS.Models.UserRolesViewModel
+@{
+    ViewData["Title"] = "Manage User Roles";
+    Layout = "_DashboardLayout";
+}
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <h5>Manage Roles for @Model.UserName</h5>
+                <p class="text-muted">@Model.Email</p>
+            </div>
+            <div class="card-body">
+                <form asp-action="ManageUserRoles" method="post">
+                    <input asp-for="UserId" type="hidden" />
+                    <input asp-for="UserName" type="hidden" />
+                    <input asp-for="Email" type="hidden" />
+                    
+                    <div class="form-group">
+                        <label class="control-label">Assign Roles</label>
+                        @for (int i = 0; i < Model.Roles.Count; i++)
+                        {
+                            <div class="form-check">
+                                <input asp-for="Roles[i].UserId" type="hidden" />
+                                <input asp-for="Roles[i].UserName" type="hidden" />
+                                <input asp-for="Roles[i].Email" type="hidden" />
+                                <input asp-for="Roles[i].IsSelected" class="form-check-input" />
+                                <label asp-for="Roles[i].IsSelected" class="form-check-label">
+                                    @Model.Roles[i].UserName
+                                </label>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Update Roles</button>
+                        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

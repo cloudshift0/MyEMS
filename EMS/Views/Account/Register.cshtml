@@ -1,0 +1,132 @@
+@model RegisterViewModal
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MyEMS - Register</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="MyEMS" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="~/TempComp/dist/assets/images/favicon.ico" type="image/x-icon">
+    <!-- vendor css -->
+    <link rel="stylesheet" href="~/TempComp/dist/assets/css/style.css">
+</head>
+
+<body>
+    <!-- [ auth-signup ] start -->
+    <div class="auth-wrapper">
+        <div class="auth-content text-center">
+            <img src="~/TempComp/dist/assets/images/logo.png" alt="MyEMS" class="img-fluid mb-4">
+            <div class="card borderless">
+                <div class="row align-items-center text-center">
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <h4 class="f-w-400">Sign up</h4>
+                            <hr>
+
+                            @if (ViewData.ModelState.ErrorCount > 0)
+                            {
+                                <div class="alert alert-danger">
+                                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                    {
+                                        <p class="mb-0">@error.ErrorMessage</p>
+                                    }
+                                </div>
+                            }
+
+                            <form asp-action="Register" asp-controller="Account" method="post">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                                <div class="form-group mb-3">
+                                    <input asp-for="FullName" type="text" class="form-control"
+                                        placeholder="Full Name" />
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <input asp-for="Email" type="email" class="form-control"
+                                        placeholder="Email address" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group mb-4">
+                                    <input asp-for="Password" type="password" class="form-control"
+                                        placeholder="Password" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group mb-4">
+                                    <input asp-for="ConfirmPassword" type="password" class="form-control"
+                                        placeholder="Confirm Password" />
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <input asp-for="Address" type="text" class="form-control"
+                                        placeholder="Address (Optional)" />
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-3">
+                                            <input asp-for="City" type="text" class="form-control"
+                                                placeholder="City (Optional)" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-3">
+                                            <input asp-for="PostalCode" type="text" class="form-control"
+                                                placeholder="Postal Code (Optional)" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+                            </form>
+
+                            <hr>
+                            <p class="mb-2">Already have an account? <a asp-action="Login" asp-controller="Account"
+                                    class="f-w-400">Signin</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- [ auth-signup ] end -->
+
+    <!-- Required Js -->
+    <script src="~/TempComp/dist/assets/js/vendor-all.min.js"></script>
+    <script src="~/TempComp/dist/assets/js/plugins/bootstrap.min.js"></script>
+    <script src="~/TempComp/dist/assets/js/pcoded.min.js"></script>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</body>
+
+</html>
+
+
+
+                                       
+                                       
+                                       
+                                       
+                                       
+                                               
+                                               
+                                   
+            
+        
